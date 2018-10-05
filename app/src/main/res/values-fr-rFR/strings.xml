@@ -9,9 +9,13 @@
     <string name="nav_header_title">Tirage</string>
     <string name="nav_header_subtitle">Une application pour tirer au sort des éléments</string>
     <string name="action_settings">Paramètres</string>
-    <string name="nav_home">Menu</string>
+    <string name="nav_categories">Catégories</string>
     <string name="nav_settings">Paramètres</string>
     <string name="nav_about">À propos</string>
     <string name="add_element_title">Ajouter un élément</string>
     <string name="element_name">Nom de l\'élément:</string>
+    <string name="navigation_drawer_open">Ouvrir le tiroir de navigation</string>
+    <string name="navigation_drawer_close">Fermer le tiroir de navigation</string>
+    <string name="nav_header_desc">En-tête de navigation</string>
+    <string name="nav_home">Accueil</string>
 </resources>

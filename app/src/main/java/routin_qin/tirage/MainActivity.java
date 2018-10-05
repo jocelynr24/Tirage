@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     CategoriesFragment categoriesFragment;
     SettingsFragment settingsFragment;
     AboutFragment aboutFragment;
+    HomeFragment homeFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // App run for the first time
         if (savedInstanceState == null){
             // We create all the fragments
+            homeFragment = new HomeFragment();
             categoriesFragment = new CategoriesFragment();
             settingsFragment = new SettingsFragment();
             aboutFragment = new AboutFragment();
@@ -52,7 +54,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             MenuItem item =  navigationView.getMenu().getItem(0);
             onNavigationItemSelected(item);
         }
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -120,6 +121,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, homeFragment).commit();
+        } else if (id == R.id.nav_categories) {
             getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, categoriesFragment).commit();
         } else if (id == R.id.nav_settings) {
             getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, settingsFragment).commit();
