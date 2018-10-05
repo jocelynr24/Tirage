@@ -30,22 +30,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@drawable/ic_more" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="131dp"
-        android:layout_height="wrap_content"
-        android:text="Catégorie"
-        app:layout_anchor="@+id/include"
-        app:layout_anchorGravity="left|center" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="118dp"
-        android:layout_height="wrap_content"
-        android:text="Élément"
-        app:layout_anchor="@+id/include"
-        app:layout_anchorGravity="right|center" />
+        app:srcCompat="@drawable/ic_add" />
 
 </android.support.design.widget.CoordinatorLayout>

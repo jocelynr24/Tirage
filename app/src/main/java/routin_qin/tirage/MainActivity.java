@@ -16,6 +16,9 @@ import android.view.MenuItem;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    CategoriesFragment categoriesFragment;
+    SettingsFragment settingsFragment;
+    AboutFragment aboutFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,14 +27,32 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();*/
+                Intent myIntent = new Intent(MainActivity.this, AddCategoryActivity.class);
+                startActivity(myIntent);
             }
         });
+
+        // App run for the first time
+        if (savedInstanceState == null){
+            // We create all the fragments
+            categoriesFragment = new CategoriesFragment();
+            settingsFragment = new SettingsFragment();
+            aboutFragment = new AboutFragment();
+
+            // We set the categories fragment as default
+            MenuItem item =  navigationView.getMenu().getItem(0);
+            onNavigationItemSelected(item);
+        }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -39,10 +60,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-        // Boutons temporaires
+        /*// Boutons temporaires
         Button button2 = (Button) findViewById(R.id.button2);
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,11 +77,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Intent myIntent = new Intent(MainActivity.this, AddElementActivity.class);
                 startActivity(myIntent);
             }
-        });
+        });*/
 
     }
-
-
 
     @Override
     public void onBackPressed() {
@@ -104,11 +120,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            // Handle the camera action
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, categoriesFragment).commit();
         } else if (id == R.id.nav_settings) {
-
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, settingsFragment).commit();
         } else if (id == R.id.nav_about) {
-
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, aboutFragment).commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
