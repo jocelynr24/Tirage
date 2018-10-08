@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             settingsFragment = new SettingsFragment();
             aboutFragment = new AboutFragment();
 
-            // We set the categories fragment as default
+            // We set the home fragment as default
             MenuItem item =  navigationView.getMenu().getItem(0);
             onNavigationItemSelected(item);
         }
