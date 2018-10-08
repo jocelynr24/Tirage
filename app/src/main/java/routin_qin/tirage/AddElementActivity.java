@@ -12,7 +12,7 @@ public class AddElementActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_element);
 
-        FloatingActionButton fab_cancel = (FloatingActionButton) findViewById(R.id.floatingActionButton3);
+        FloatingActionButton fab_cancel = (FloatingActionButton) findViewById(R.id.fab_element_cancel);
         fab_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

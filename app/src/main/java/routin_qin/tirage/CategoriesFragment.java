@@ -34,7 +34,7 @@ public class CategoriesFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.floatingActionButton5);
+        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab_categories_add);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -14,7 +14,7 @@ public class AddCategoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_category);
 
-        FloatingActionButton fab_cancel = (FloatingActionButton) findViewById(R.id.floatingActionButton);
+        FloatingActionButton fab_cancel = (FloatingActionButton) findViewById(R.id.fab_category_cancel);
         fab_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
