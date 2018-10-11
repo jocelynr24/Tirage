@@ -6,8 +6,10 @@ import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Arrays;
 import java.util.List;
@@ -43,6 +45,8 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
         private final TextView title;
         private final TextView description;
         private final ImageView image;
+        private final ImageButton edit;
+        private final ImageButton delete;
 
         private Pair<String, String> currentPair;
 
@@ -52,14 +56,30 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
             title = ((TextView) itemView.findViewById(R.id.tv_categories_title));
             description = ((TextView) itemView.findViewById(R.id.tv_categories_description));
             image = ((ImageView) itemView.findViewById(R.id.iv_categories_image));
+            edit = ((ImageButton) itemView.findViewById(R.id.ib_categories_edit));
+            delete = ((ImageButton) itemView.findViewById(R.id.ib_categories_delete));
 
-            itemView.setOnClickListener(new View.OnClickListener() {
+            /*itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     new AlertDialog.Builder(itemView.getContext())
                             .setTitle(currentPair.first)
                             .setMessage(currentPair.second)
                             .show();
+                }
+            });*/
+
+            edit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(view.getContext(), "Edit", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(view.getContext(), "Delete", Toast.LENGTH_SHORT).show();
                 }
             });
         }
