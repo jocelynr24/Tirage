@@ -51,7 +51,7 @@ public class CategoriesFragment extends Fragment {
         });
 
 
-        recyclerView = (RecyclerView) view.findViewById(R.id.rwCategories);
+        /*recyclerView = (RecyclerView) view.findViewById(R.id.rwCategories);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
@@ -60,7 +60,11 @@ public class CategoriesFragment extends Fragment {
             input.add("Test" + i);
         }// define an adapter
         mAdapter = new CategoriesAdapter(input);
-        recyclerView.setAdapter(mAdapter);
+        recyclerView.setAdapter(mAdapter);*/
+
+        final RecyclerView rv = (RecyclerView) view.findViewById(R.id.rw_categories);
+        rv.setLayoutManager(new LinearLayoutManager(getActivity()));
+        rv.setAdapter(new CategoriesAdapter());
 
     }
 
