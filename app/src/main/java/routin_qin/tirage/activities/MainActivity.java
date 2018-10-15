@@ -1,5 +1,6 @@
 package routin_qin.tirage.activities;
 
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -11,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import routin_qin.tirage.R;
+import routin_qin.tirage.database.DataBaseHelper;
 import routin_qin.tirage.fragments.SettingsFragment;
 import routin_qin.tirage.fragments.AboutFragment;
 import routin_qin.tirage.fragments.CategoriesFragment;
@@ -21,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     SettingsFragment settingsFragment;
     AboutFragment aboutFragment;
     HomeFragment homeFragment;
+    DataBaseHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +53,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
+        db = new DataBaseHelper(this);
     }
 
     @Override
