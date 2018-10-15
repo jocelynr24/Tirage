@@ -1,5 +1,6 @@
 package routin_qin.tirage.activities;
 
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
@@ -57,6 +58,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         db = new DataBaseHelper(this);
         db.insertCategory("testtitle", "testdesc");
+        Cursor data = db.getAllData();
+
+        StringBuffer buffer = new StringBuffer();
+        while(data.moveToNext()){
+            buffer.append("ID :" + data.getString(0)+"\n");
+            buffer.append("Title :" + data.getString(1)+"\n");
+            buffer.append("Description :" + data.getString(2)+"\n");
+        }
     }
 
     @Override

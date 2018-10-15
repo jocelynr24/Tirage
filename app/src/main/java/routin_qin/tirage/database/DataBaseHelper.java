@@ -2,6 +2,7 @@ package routin_qin.tirage.database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -36,5 +37,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.insert("categories", null, contentValues);
     }
 
-    
+    public Cursor getAllData(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor result = db.rawQuery("SELECT * FROM categories", null);
+        return result;
+    }
 }
