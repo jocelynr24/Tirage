@@ -1,4 +1,4 @@
-package routin_qin.tirage;
+package routin_qin.tirage.fragments;
 
 
 import android.content.Intent;
@@ -13,8 +13,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
-import java.util.List;
+import routin_qin.tirage.lists.CategoriesAdapter;
+import routin_qin.tirage.R;
+import routin_qin.tirage.activities.AddCategoryActivity;
 
 
 /**

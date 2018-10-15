@@ -1,9 +1,11 @@
-package routin_qin.tirage;
+package routin_qin.tirage.activities;
 
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import routin_qin.tirage.R;
 
 public class AddElementActivity extends AppCompatActivity {
 

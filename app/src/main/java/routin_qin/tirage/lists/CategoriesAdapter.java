@@ -1,6 +1,5 @@
-package routin_qin.tirage;
+package routin_qin.tirage.lists;
 
-import android.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.util.Pair;
 import android.view.LayoutInflater;
@@ -13,6 +12,8 @@ import android.widget.Toast;
 
 import java.util.Arrays;
 import java.util.List;
+
+import routin_qin.tirage.R;
 
 public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.CategoriesViewHolder> {
 

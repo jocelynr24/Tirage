@@ -1,4 +1,4 @@
-package routin_qin.tirage;
+package routin_qin.tirage.activities;
 
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import routin_qin.tirage.R;
 
 public class AddCategoryActivity extends AppCompatActivity {
 
