@@ -1,5 +1,6 @@
 package routin_qin.tirage.activities;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
 
         db = new DataBaseHelper(this);
+        db.insertCategory("testtitle", "testdesc");
     }
 
     @Override
