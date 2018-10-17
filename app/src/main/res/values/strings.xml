@@ -18,4 +18,6 @@
     <string name="element_name">Element name:</string>
     <string name="nav_home">Home</string>
     <string name="home_desc1">Tirage is an application enabling the user to draw lots elements among a large amount of elements.</string>
+    <string name="nav_elements">Elements</string>
+    <string name="element_description">Element description:</string>
 </resources>

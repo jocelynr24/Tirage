@@ -10,30 +10,28 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import routin_qin.tirage.database.DataBaseHelper;
 import routin_qin.tirage.lists.CategoriesAdapter;
 import routin_qin.tirage.R;
-import routin_qin.tirage.activities.AddCategoryActivity;
+import routin_qin.tirage.activities.AddElementActivity;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CategoriesFragment extends Fragment {
+public class ElementsFragment extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
 
-    public CategoriesFragment() {
+    public ElementsFragment() {
         // Required empty public constructor
     }
 
@@ -43,7 +41,7 @@ public class CategoriesFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_categories, container, false);
+        return inflater.inflate(R.layout.fragment_elements, container, false);
     }
 
     @Override
@@ -53,7 +51,7 @@ public class CategoriesFragment extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(getActivity(), AddCategoryActivity.class);
+                Intent myIntent = new Intent(getActivity(), AddElementActivity.class);
                 startActivity(myIntent);
             }
         });
@@ -63,36 +61,19 @@ public class CategoriesFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
+
         List<String> titles = new ArrayList<>();
         List<String> descriptions = new ArrayList<>();
-
-
         DataBaseHelper db = new DataBaseHelper(getActivity());
         Cursor data = db.getAllData();
-
 
         while(data.moveToNext()){
             titles.add(data.getString(1));
             descriptions.add(data.getString(2));
-            //input.add(data.getString(2));
         }
 
-
-
-        //for (int i = 0; i < 100; i++) {
-        //    input.add("Test" + i);
-        //}// define an adapter
         mAdapter = new CategoriesAdapter(titles, descriptions);
         recyclerView.setAdapter(mAdapter);
 
-        /*final RecyclerView rv = (RecyclerView) view.findViewById(R.id.rw_categories);
-        rv.setLayoutManager(new LinearLayoutManager(getActivity()));
-        rv.setAdapter(new CategoriesAdapter());*/
-
-
-
-
-
     }
-
 }

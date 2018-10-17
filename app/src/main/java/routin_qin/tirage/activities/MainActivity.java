@@ -1,8 +1,5 @@
 package routin_qin.tirage.activities;
 
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,14 +11,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import routin_qin.tirage.R;
-import routin_qin.tirage.database.DataBaseHelper;
 import routin_qin.tirage.fragments.SettingsFragment;
 import routin_qin.tirage.fragments.AboutFragment;
-import routin_qin.tirage.fragments.CategoriesFragment;
+import routin_qin.tirage.fragments.ElementsFragment;
 import routin_qin.tirage.fragments.HomeFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    CategoriesFragment categoriesFragment;
+    ElementsFragment elementsFragment;
     SettingsFragment settingsFragment;
     AboutFragment aboutFragment;
     HomeFragment homeFragment;
@@ -40,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (savedInstanceState == null){
             // We create all the fragments
             homeFragment = new HomeFragment();
-            categoriesFragment = new CategoriesFragment();
+            elementsFragment = new ElementsFragment();
             settingsFragment = new SettingsFragment();
             aboutFragment = new AboutFragment();
 
@@ -98,8 +94,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.nav_home) {
             getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, homeFragment).commit();
-        } else if (id == R.id.nav_categories) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, categoriesFragment).commit();
+        } else if (id == R.id.nav_elements) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, elementsFragment).commit();
         } else if (id == R.id.nav_settings) {
             getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, settingsFragment).commit();
         } else if (id == R.id.nav_about) {
