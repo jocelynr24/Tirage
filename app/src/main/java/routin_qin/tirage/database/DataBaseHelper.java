@@ -34,12 +34,17 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         ContentValues contentValues = new ContentValues();
         contentValues.put("title", title);
         contentValues.put("description", description);
-        db.insert("categories", null, contentValues);
+        db.insert("elements", null, contentValues);
+    }
+
+    public void removeElement(String title){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete("elements", "title" + "=" + title, null);
     }
 
     public Cursor getAllData(){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor result = db.rawQuery("SELECT * FROM categories", null);
+        Cursor result = db.rawQuery("SELECT * FROM elements", null);
         return result;
     }
 

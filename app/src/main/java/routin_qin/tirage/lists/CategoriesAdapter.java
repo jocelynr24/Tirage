@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import routin_qin.tirage.R;
+import routin_qin.tirage.database.DataBaseHelper;
 
 public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.ViewHolder> {
     private List<String> titles;
@@ -78,12 +79,6 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
         final String title = titles.get(position);
         final String description = descriptions.get(position);
         holder.txtTitle.setText(title);
-        holder.txtTitle.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //remove(position);
-            }
-        });
 
         holder.ibtEdit.setOnClickListener(new OnClickListener() {
             @Override
