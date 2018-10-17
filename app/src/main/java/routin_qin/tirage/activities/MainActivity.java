@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     SettingsFragment settingsFragment;
     AboutFragment aboutFragment;
     HomeFragment homeFragment;
+    MenuItem item;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             aboutFragment = new AboutFragment();
 
             // We set the home fragment as default
-            MenuItem item =  navigationView.getMenu().getItem(0);
+            item =  navigationView.getMenu().getItem(0);
             onNavigationItemSelected(item);
         }
 
@@ -52,6 +53,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
 
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        onNavigationItemSelected(item);
     }
 
     @Override
@@ -92,10 +99,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        this.item = item;
+
         if (id == R.id.nav_home) {
             getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, homeFragment).commit();
         } else if (id == R.id.nav_elements) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, elementsFragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new ElementsFragment()).commit();
         } else if (id == R.id.nav_settings) {
             getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, settingsFragment).commit();
         } else if (id == R.id.nav_about) {
