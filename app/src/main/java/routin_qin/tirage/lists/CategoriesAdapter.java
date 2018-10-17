@@ -12,7 +12,8 @@ import android.widget.TextView;
 import routin_qin.tirage.R;
 
 public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.ViewHolder> {
-    private List<String> values;
+    private List<String> titles;
+    private List<String> descriptions;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -31,19 +32,21 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
         }
     }
 
-    public void add(int position, String item) {
-        values.add(position, item);
+    /*public void add(int position, String item) {
+        titles.add(position, item);
+        descriptions.add()
         notifyItemInserted(position);
     }
 
     public void remove(int position) {
-        values.remove(position);
+        titles.remove(position);
         notifyItemRemoved(position);
-    }
+    }*/
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public CategoriesAdapter(List<String> myDataset) {
-        values = myDataset;
+    public CategoriesAdapter(List<String> title, List<String> description) {
+        titles = title;
+        descriptions = description;
     }
 
     // Create new views (invoked by the layout manager)
@@ -65,8 +68,9 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
     public void onBindViewHolder(ViewHolder holder, final int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        final String name = values.get(position);
-        holder.txtTitle.setText(name);
+        final String title = titles.get(position);
+        final String description = descriptions.get(position);
+        holder.txtTitle.setText(title);
         holder.txtTitle.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,13 +78,13 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
             }
         });
 
-        holder.txtDescription.setText(name);
+        holder.txtDescription.setText(description);
     }
 
     // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        return values.size();
+        return titles.size();
     }
 
 }

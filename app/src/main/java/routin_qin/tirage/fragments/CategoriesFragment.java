@@ -63,7 +63,8 @@ public class CategoriesFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
-        List<String> input = new ArrayList<>();
+        List<String> titles = new ArrayList<>();
+        List<String> descriptions = new ArrayList<>();
 
 
         DataBaseHelper db = new DataBaseHelper(getActivity());
@@ -71,7 +72,8 @@ public class CategoriesFragment extends Fragment {
 
 
         while(data.moveToNext()){
-            input.add(data.getString(1));
+            titles.add(data.getString(1));
+            descriptions.add(data.getString(2));
             //input.add(data.getString(2));
         }
 
@@ -80,7 +82,7 @@ public class CategoriesFragment extends Fragment {
         //for (int i = 0; i < 100; i++) {
         //    input.add("Test" + i);
         //}// define an adapter
-        mAdapter = new CategoriesAdapter(input);
+        mAdapter = new CategoriesAdapter(titles, descriptions);
         recyclerView.setAdapter(mAdapter);
 
         /*final RecyclerView rv = (RecyclerView) view.findViewById(R.id.rw_categories);
