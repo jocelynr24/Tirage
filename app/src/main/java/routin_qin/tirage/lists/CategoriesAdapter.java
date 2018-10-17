@@ -1,95 +1,86 @@
 package routin_qin.tirage.lists;
 
+import java.util.List;
+
 import android.support.v7.widget.RecyclerView;
-import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.Arrays;
-import java.util.List;
 
 import routin_qin.tirage.R;
 
-public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.CategoriesViewHolder> {
+public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.ViewHolder> {
+    private List<String> values;
 
-    private final List<Pair<String, String>> categories = Arrays.asList(
-            Pair.create("Categorie 1", "Première catégorie de l'application."),
-            Pair.create("Categorie 2", "Deuxième catégorie de l'application."),
-            Pair.create("Categorie 3", "Troisième catégorie de l'application.")
-    );
+    // Provide a reference to the views for each data item
+    // Complex data items may need more than one view per item, and
+    // you provide access to all the views for a data item in a view holder
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        // each data item is just a string in this case
+        public TextView txtTitle;
+        public TextView txtDescription;
+        public View layout;
 
+        public ViewHolder(View v) {
+            super(v);
+            layout = v;
+            txtTitle = (TextView) v.findViewById(R.id.tv_categories_title);
+            txtDescription = (TextView) v.findViewById(R.id.tv_categories_description);
+        }
+    }
+
+    public void add(int position, String item) {
+        values.add(position, item);
+        notifyItemInserted(position);
+    }
+
+    public void remove(int position) {
+        values.remove(position);
+        notifyItemRemoved(position);
+    }
+
+    // Provide a suitable constructor (depends on the kind of dataset)
+    public CategoriesAdapter(List<String> myDataset) {
+        values = myDataset;
+    }
+
+    // Create new views (invoked by the layout manager)
+    @Override
+    public CategoriesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
+                                                           int viewType) {
+        // create a new view
+        LayoutInflater inflater = LayoutInflater.from(
+                parent.getContext());
+        View v =
+                inflater.inflate(R.layout.row_categories, parent, false);
+        // set the view's size, margins, paddings and layout parameters
+        ViewHolder vh = new ViewHolder(v);
+        return vh;
+    }
+
+    // Replace the contents of a view (invoked by the layout manager)
+    @Override
+    public void onBindViewHolder(ViewHolder holder, final int position) {
+        // - get element from your dataset at this position
+        // - replace the contents of the view with that element
+        final String name = values.get(position);
+        holder.txtTitle.setText(name);
+        holder.txtTitle.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //remove(position);
+            }
+        });
+
+        holder.txtDescription.setText(name);
+    }
+
+    // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        return categories.size();
-    }
-
-    @Override
-    public CategoriesViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.row_categories, parent, false);
-        return new CategoriesViewHolder(view);
-    }
-
-    @Override
-    public void onBindViewHolder(CategoriesViewHolder holder, int position) {
-        Pair<String, String> pair = categories.get(position);
-        holder.display(pair);
-    }
-
-    public class CategoriesViewHolder extends RecyclerView.ViewHolder {
-
-        private final TextView title;
-        private final TextView description;
-        private final ImageView image;
-        private final ImageButton edit;
-        private final ImageButton delete;
-
-        private Pair<String, String> currentPair;
-
-        public CategoriesViewHolder(final View itemView) {
-            super(itemView);
-
-            title = ((TextView) itemView.findViewById(R.id.tv_categories_title));
-            description = ((TextView) itemView.findViewById(R.id.tv_categories_description));
-            image = ((ImageView) itemView.findViewById(R.id.iv_categories_image));
-            edit = ((ImageButton) itemView.findViewById(R.id.ib_categories_edit));
-            delete = ((ImageButton) itemView.findViewById(R.id.ib_categories_delete));
-
-            /*itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    new AlertDialog.Builder(itemView.getContext())
-                            .setTitle(currentPair.first)
-                            .setMessage(currentPair.second)
-                            .show();
-                }
-            });*/
-
-            edit.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Toast.makeText(view.getContext(), "Edit", Toast.LENGTH_SHORT).show();
-                }
-            });
-
-            delete.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Toast.makeText(view.getContext(), "Delete", Toast.LENGTH_SHORT).show();
-                }
-            });
-        }
-
-        public void display(Pair<String, String> pair) {
-            currentPair = pair;
-            title.setText(pair.first);
-            description.setText(pair.second);
-        }
+        return values.size();
     }
 
 }

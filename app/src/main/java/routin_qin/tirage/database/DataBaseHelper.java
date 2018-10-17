@@ -13,7 +13,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                                                                                  Category.COLUMN_NUM_ID + " INTEGER PRIMARY KEY," +
                                                                                  Category.COLUMN_NAME_TITLE + " TEXT," +
                                                                                  Category.COLUMN_NAME_DESCRIPTION + " TEXT);";*/
-    public static final String SQL_CREATE_CATEGORIES_ENTRIES = "CREATE TABLE categories (ID INTEGER PRIMARY KEY AUTOINCREMENT, TITLE TEXT, DESCRIPTION TEXT)";
+    public static final String SQL_CREATE_CATEGORIES_ENTRIES = "CREATE TABLE categories (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, description TEXT)";
 
     public DataBaseHelper(Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -32,8 +32,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public void insertCategory(String title, String description){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("TITLE", title);
-        contentValues.put("DESCRIPTION", description);
+        contentValues.put("title", title);
+        contentValues.put("description", description);
         db.insert("categories", null, contentValues);
     }
 
@@ -42,4 +42,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         Cursor result = db.rawQuery("SELECT * FROM categories", null);
         return result;
     }
+
+
 }
