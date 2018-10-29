@@ -26,7 +26,6 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
         // each data item is just a string in this case
         public TextView txtTitle;
         public TextView txtDescription;
-        public ImageButton ibtEdit;
         public ImageButton ibtDelete;
         public View layout;
 
@@ -35,7 +34,6 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
             layout = v;
             txtTitle = (TextView) v.findViewById(R.id.tv_categories_title);
             txtDescription = (TextView) v.findViewById(R.id.tv_categories_description);
-            ibtEdit = (ImageButton) itemView.findViewById(R.id.ib_categories_edit);
             ibtDelete = (ImageButton) itemView.findViewById(R.id.ib_categories_delete);
         }
     }
@@ -80,17 +78,9 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
         final String description = descriptions.get(position);
         holder.txtTitle.setText(title);
 
-        holder.ibtEdit.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Toast.makeText(view.getContext(), "Edit", Toast.LENGTH_SHORT).show();
-            }
-        });
-
         holder.ibtDelete.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Toast.makeText(view.getContext(), "Delete", Toast.LENGTH_SHORT).show();
                 DataBaseHelper db = new DataBaseHelper(view.getContext());
                 db.removeElement(title);
                 titles.remove(position);
