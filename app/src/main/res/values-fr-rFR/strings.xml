@@ -25,4 +25,6 @@
     <string name="home_desc2">Pour commencer, appuyez sur le bouton en haut à gauche pour afficher le menu et cliquez sur \"Éléments\" pour afficher la liste d\'éléments.</string>
     <string name="home_desc3">Ensuite, cliquez sur le bouton en bas à gauche pour ajouter un nouvel élément ou cliquez sur le bouton en bas à gauche pour tirer un élément au sort dans la liste.</string>
     <string name="home_desc4">Enfin, votre élement est affiché sur l\'écran et vous pouvez faire votre choix !</string>
+    <string name="about_title">À propos</string>
+    <string name="about_desc">Application créée par Jocelyn Routin et Jia Qin.</string>
 </resources>

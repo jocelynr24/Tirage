@@ -24,4 +24,6 @@
     <string name="home_desc2">To start, press the top left button to display the menu and click on \"Elements\" to display the list of elements.</string>
     <string name="home_desc3">Then, click on the bottom right button to add a new element or click on the bottom left button to draw lots an element in the list.</string>
     <string name="home_desc4">Finally, your element is displayed on the screen and you can make your choice!</string>
+    <string name="about_title">About</string>
+    <string name="about_desc">Application made by Jocelyn Routin and Jia Qin.</string>
 </resources>
