@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
+import routin_qin.tirage.activities.RandomActivity;
 import routin_qin.tirage.database.DataBaseHelper;
 import routin_qin.tirage.lists.CategoriesAdapter;
 import routin_qin.tirage.R;
@@ -48,12 +49,22 @@ public class ElementsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab_categories_add);
-        fab.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fab_add = (FloatingActionButton) view.findViewById(R.id.fab_elements_add);
+        FloatingActionButton fab_random = (FloatingActionButton) view.findViewById(R.id.fab_elements_random);
+
+        fab_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(getActivity(), AddElementActivity.class);
-                startActivity(myIntent);
+                Intent addElementIntent = new Intent(getActivity(), AddElementActivity.class);
+                startActivity(addElementIntent);
+            }
+        });
+
+        fab_random.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent randomIntent = new Intent(getActivity(), RandomActivity.class);
+                startActivity(randomIntent);
             }
         });
 

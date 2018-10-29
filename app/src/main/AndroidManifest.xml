@@ -20,6 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.AddElementActivity" />
+        <activity android:name=".activities.RandomActivity"></activity>
     </application>
 
 </manifest>
