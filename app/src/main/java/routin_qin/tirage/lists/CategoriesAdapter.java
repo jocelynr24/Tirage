@@ -83,14 +83,18 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
         holder.ibtEdit.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(), "Edit", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(view.getContext(), "Edit", Toast.LENGTH_SHORT).show();
             }
         });
 
         holder.ibtDelete.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(), "Delete", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(view.getContext(), "Delete", Toast.LENGTH_SHORT).show();
+                DataBaseHelper db = new DataBaseHelper(view.getContext());
+                db.removeElement(title);
+                titles.remove(position);
+                notifyItemRemoved(position);
             }
         });
 

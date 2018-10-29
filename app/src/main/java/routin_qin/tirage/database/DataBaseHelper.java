@@ -39,7 +39,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     public void removeElement(String title){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete("elements", "title" + "=" + title, null);
+        db.delete("elements", "title" + "=?", new String[]{title});
     }
 
     public Cursor getAllData(){

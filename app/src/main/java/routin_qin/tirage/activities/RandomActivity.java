@@ -43,7 +43,7 @@ public class RandomActivity extends AppCompatActivity {
         }
 
         Random rand = new Random();
-        int  n = rand.nextInt(titles.size());
+        int n = rand.nextInt(titles.size());
 
         tv_random_title.setText(titles.get(n));
         tv_random_description.setText(descriptions.get(n));
