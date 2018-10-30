@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Tirage</string>
-    <string name="home_title">Bienvenue sur Tirage !</string>
+    <string name="help_title">Aide</string>
     <string name="category_name">Nom de la catégorie :</string>
     <string name="add_category_title">Ajouter une catégorie</string>
     <string name="category_description">Description de la catégorie :</string>
@@ -22,9 +22,10 @@
     <string name="nav_elements">Élements</string>
     <string name="element_description">Description de l\'élément :</string>
     <string name="random_back">Retour</string>
-    <string name="home_desc2">Pour commencer, appuyez sur le bouton en haut à gauche pour afficher le menu et cliquez sur \"Éléments\" pour afficher la liste d\'éléments.</string>
-    <string name="home_desc3">Ensuite, cliquez sur le bouton en bas à gauche pour ajouter un nouvel élément ou cliquez sur le bouton en bas à gauche pour tirer un élément au sort dans la liste.</string>
-    <string name="home_desc4">Enfin, votre élement est affiché sur l\'écran et vous pouvez faire votre choix !</string>
+    <string name="help_desc2">Pour commencer, appuyez sur le bouton en haut à gauche pour afficher le menu et cliquez sur \"Éléments\" pour afficher la liste d\'éléments.</string>
+    <string name="help_desc3">Ensuite, cliquez sur le bouton en bas à gauche pour ajouter un nouvel élément ou cliquez sur le bouton en bas à gauche pour tirer un élément au sort dans la liste.</string>
+    <string name="help_desc4">Enfin, votre élement est affiché sur l\'écran et vous pouvez faire votre choix !</string>
     <string name="about_title">À propos</string>
     <string name="about_desc">Application créée par Jocelyn Routin et Jia Qin.</string>
+    <string name="nav_help">Aide</string>
 </resources>

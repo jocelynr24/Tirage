@@ -12,15 +12,13 @@ import android.view.MenuItem;
 
 import routin_qin.tirage.R;
 import routin_qin.tirage.fragments.SettingsFragment;
-import routin_qin.tirage.fragments.AboutFragment;
 import routin_qin.tirage.fragments.ElementsFragment;
-import routin_qin.tirage.fragments.HomeFragment;
+import routin_qin.tirage.fragments.HelpFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     ElementsFragment elementsFragment;
     SettingsFragment settingsFragment;
-    AboutFragment aboutFragment;
-    HomeFragment homeFragment;
+    HelpFragment helpFragment;
     MenuItem item;
 
     @Override
@@ -36,10 +34,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // App run for the first time
         if (savedInstanceState == null){
             // We create all the fragments
-            homeFragment = new HomeFragment();
             elementsFragment = new ElementsFragment();
             settingsFragment = new SettingsFragment();
-            aboutFragment = new AboutFragment();
+            helpFragment = new HelpFragment();
 
             // We set the home fragment as default
             item =  navigationView.getMenu().getItem(0);
@@ -101,14 +98,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         this.item = item;
 
-        if (id == R.id.nav_home) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, homeFragment).commit();
-        } else if (id == R.id.nav_elements) {
+        if (id == R.id.nav_elements) {
             getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new ElementsFragment()).commit();
         } else if (id == R.id.nav_settings) {
             getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, settingsFragment).commit();
-        } else if (id == R.id.nav_about) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, aboutFragment).commit();
+        } else if (id == R.id.nav_help) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, helpFragment).commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
