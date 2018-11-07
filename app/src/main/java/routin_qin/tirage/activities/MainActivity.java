@@ -16,7 +16,6 @@ import routin_qin.tirage.fragments.ElementsFragment;
 import routin_qin.tirage.fragments.HelpFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    ElementsFragment elementsFragment;
     SettingsFragment settingsFragment;
     HelpFragment helpFragment;
     MenuItem item;
@@ -34,11 +33,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // App run for the first time
         if (savedInstanceState == null){
             // We create all the fragments
-            elementsFragment = new ElementsFragment();
             settingsFragment = new SettingsFragment();
             helpFragment = new HelpFragment();
 
-            // We set the home fragment as default
+            // We set the elements fragment as default
             item =  navigationView.getMenu().getItem(0);
             onNavigationItemSelected(item);
         }

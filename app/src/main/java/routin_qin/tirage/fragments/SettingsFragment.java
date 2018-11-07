@@ -84,5 +84,4 @@ public class SettingsFragment extends Fragment {
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);
     }
-
 }

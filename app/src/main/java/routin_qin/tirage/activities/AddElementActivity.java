@@ -31,7 +31,6 @@ public class AddElementActivity extends AppCompatActivity {
         fab_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(getApplicationContext(), "Send", Toast.LENGTH_SHORT).show();
                 DataBaseHelper db = new DataBaseHelper(getApplicationContext());
                 db.addElement(et_title.getText().toString(), et_description.getText().toString());
                 finish();

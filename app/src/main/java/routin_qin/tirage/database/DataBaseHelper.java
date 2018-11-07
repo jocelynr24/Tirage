@@ -22,7 +22,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
-
     }
 
     public void addElement(String title, String description){
@@ -43,6 +42,4 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         Cursor result = db.rawQuery("SELECT * FROM elements", null);
         return result;
     }
-
-
 }

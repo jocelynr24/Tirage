@@ -15,7 +15,6 @@ import routin_qin.tirage.R;
  */
 public class HelpFragment extends Fragment {
 
-
     public HelpFragment() {
         // Required empty public constructor
     }
@@ -27,5 +26,4 @@ public class HelpFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_help, container, false);
     }
-
 }

@@ -38,17 +38,6 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
         }
     }
 
-    /*public void add(int position, String item) {
-        titles.add(position, item);
-        descriptions.add()
-        notifyItemInserted(position);
-    }
-
-    public void remove(int position) {
-        titles.remove(position);
-        notifyItemRemoved(position);
-    }*/
-
     // Provide a suitable constructor (depends on the kind of dataset)
     public CategoriesAdapter(List<String> title, List<String> description) {
         titles = title;
@@ -57,13 +46,10 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
 
     // Create new views (invoked by the layout manager)
     @Override
-    public CategoriesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                           int viewType) {
+    public CategoriesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // create a new view
-        LayoutInflater inflater = LayoutInflater.from(
-                parent.getContext());
-        View v =
-                inflater.inflate(R.layout.row_categories, parent, false);
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        View v = inflater.inflate(R.layout.row_categories, parent, false);
         // set the view's size, margins, paddings and layout parameters
         ViewHolder vh = new ViewHolder(v);
         return vh;
@@ -96,5 +82,4 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
     public int getItemCount() {
         return titles.size();
     }
-
 }

@@ -86,6 +86,5 @@ public class ElementsFragment extends Fragment {
 
         mAdapter = new CategoriesAdapter(titles, descriptions);
         recyclerView.setAdapter(mAdapter);
-
     }
 }
