@@ -69,7 +69,10 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
             public void onClick(View view) {
                 DataBaseHelper db = new DataBaseHelper(view.getContext());
                 db.removeElement(title);
-                titles.remove(position);
+                try{
+                    titles.remove(position);
+                }catch(IndexOutOfBoundsException e){
+                }
                 notifyItemRemoved(position);
             }
         });

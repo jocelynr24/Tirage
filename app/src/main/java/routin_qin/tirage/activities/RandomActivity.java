@@ -42,10 +42,15 @@ public class RandomActivity extends AppCompatActivity {
             descriptions.add(data.getString(2));
         }
 
-        Random rand = new Random();
-        int n = rand.nextInt(titles.size());
+        if(titles.size() > 0){
+            Random rand = new Random();
+            int n = rand.nextInt(titles.size());
 
-        tv_random_title.setText(titles.get(n));
-        tv_random_description.setText(descriptions.get(n));
+            tv_random_title.setText(titles.get(n));
+            tv_random_description.setText(descriptions.get(n));
+        } else {
+            finish();
+        }
+
     }
 }

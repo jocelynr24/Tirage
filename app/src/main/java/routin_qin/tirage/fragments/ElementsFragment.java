@@ -68,7 +68,6 @@ public class ElementsFragment extends Fragment {
             }
         });
 
-
         recyclerView = (RecyclerView) view.findViewById(R.id.rw_categories);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(getActivity());
@@ -86,5 +85,11 @@ public class ElementsFragment extends Fragment {
 
         mAdapter = new CategoriesAdapter(titles, descriptions);
         recyclerView.setAdapter(mAdapter);
+
+        if(titles.size() > 0){
+            fab_random.show();
+        } else {
+            fab_random.hide();
+        }
     }
 }
